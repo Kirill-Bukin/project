@@ -1,0 +1,14 @@
+.menu {
+    padding: 10px;
+    color: rgb(47, 34, 238);
+    width: 200px;
+}
+
+h2:hover {
+    color: rgb(22, 0, 71);
+
+}
+h4:hover {
+    color: rgb(22, 0, 71);
+
+}

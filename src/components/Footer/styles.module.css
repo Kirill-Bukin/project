@@ -1,0 +1,6 @@
+.wrapper{
+    background-color: rgb(144, 228, 228);
+    height: 40px;
+    display: flex;
+    border-radius: 5px 5px;
+}

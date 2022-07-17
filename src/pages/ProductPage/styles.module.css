@@ -1,0 +1,47 @@
+.conteiner {
+    margin: 0, auto;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.image {
+    margin: 5px;
+}
+
+.img {
+    max-width: 480px;
+    max-height: 420px;
+
+}
+
+.price_price {
+    font-size: 35px;
+    line-height: 35px;
+    font-weight: bold;
+    color: rgb(47, 34, 238);
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+}
+
+.price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.btn{
+   background-color: rgb(47, 34, 238);
+   border-radius: 15px;
+   cursor: pointer;
+   color: white;
+}
