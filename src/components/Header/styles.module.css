@@ -1,0 +1,24 @@
+.header {
+  border-radius: 10px 10px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  background-color: rgb(144, 228, 228);
+}
+.wrapper {
+  display: flex;
+  flex-grow: 0.3;
+}
+.title {
+  width: 20px;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(47, 34, 238);
+}
+.button {
+  justify-content: flex-end;
+  color: rgb(47, 34, 238);
+}

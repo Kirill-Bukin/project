@@ -1,0 +1,11 @@
+.wrapper{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 70px;
+    size: 50px;
+    background-color: rgb(144, 228, 228);
+    height: 40px;
+    border-radius: 5px 5px;
+    font-size: 30px;
+    padding-top: 10px;
+}
