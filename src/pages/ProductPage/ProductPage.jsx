@@ -4,14 +4,11 @@ import { useParams } from "react-router-dom";
 import { fetchProductPage } from "../../store/productPage/slice";
 import { productPageSelectors } from "../../store/productPage";
 import { Divider } from "antd";
-import css from "./styles.module.css";
 import { Loader } from "../../components/common/Loader";
-
-//import { Notfoundpage } from '../Notfoundpage';
+import css from "./styles.module.css";
 
 export const ProductPage = () => {
-  const { id } = useParams();
-  //const navigate = useNavigate();
+  let { id } = useParams();
   const dispatch = useDispatch();
 
   const productPage = useSelector(productPageSelectors.getProductPage);

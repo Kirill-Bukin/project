@@ -1,14 +1,7 @@
 import React from 'react';
-
 import css from './styles.module.css';
 
-
-
-
 export const Card = ({ img, price, lable}) => {
-
-  
-
     return (
       <div className={css.wrapper}>
         <div className={css.item} > 

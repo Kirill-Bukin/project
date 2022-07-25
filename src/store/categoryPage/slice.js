@@ -1,27 +1,27 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { LOAD_STATUSES, GOODS } from "../../constants";
+import { LOAD_STATUSES, CATEGORY_PAGE } from "../../constants";
 import { Api } from "../../api/Api";
 
 const api = new Api();
-export const getFetchGoods = createAsyncThunk(`${GOODS}/getFetchGoods`, api.getGoods);
 
+export const fetchCategoryPage = createAsyncThunk(`${CATEGORY_PAGE}/fetchCategoryPage`, api.getGoodsByCategoryId)
 
 export const { reducer } = createSlice({
-    name: GOODS,
+    name: CATEGORY_PAGE,
     initialState: {
-        goods: [],
+        data: [],
         loadStatus: LOAD_STATUSES.UNKNOWN,
     },
-    reducers: { },
+    reducers: {},
     extraReducers: {
-        [getFetchGoods.pending]: (state) => {
+        [fetchCategoryPage.pending]: (state) => {
             state.loadStatus = LOAD_STATUSES.LOADING;
         },
-        [getFetchGoods.fulfilled]: (state, action) => {
+        [fetchCategoryPage.fulfilled]: (state, action) => {
             state.loadStatus = LOAD_STATUSES.LOADED;
-            state.goods = action.payload.goods;
+            state.data = action.payload.items;
         },
-        [getFetchGoods.rejected]: (state) => {
+        [fetchCategoryPage.rejected]: (state) => {
             state.loadStatus = LOAD_STATUSES.ERROR;
         },
     }

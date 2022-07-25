@@ -20,4 +20,13 @@ export class Api {
         const url = this.andPoints.goods;
         return request(url, { ids })
 }
-};
+    }
+    getGoodsByCategoryId = (categoryTypeIds) => {
+        const url = this.andPoints.goods;
+        return request(url, { categoryTypeIds })
+    }
+    getSearch = (text) => {
+        const url = this.andPoints.goods;
+        return request(url, { text });
+    }
+;

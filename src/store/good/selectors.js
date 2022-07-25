@@ -1,5 +1,6 @@
-import { getCategoriesSelector } from '../categoriesSlice/categoriesSelectors';
-import { LOAD_STATUSES } from '../constants';
+import { getCategoriesSelector } from '../../store/categories/selectors';
+import { LOAD_STATUSES } from '../../constants';
+
 
 export const getGoodsSelector = (state) => state.goods;
 export const getLoadStatusSelector = (state) => getGoodsSelector(state).loadStatus;

@@ -10,6 +10,7 @@ import { ProductPage } from "../pages/ProductPage/ProductPage";
 
 
 export function App() {
+  const isAuth = true;
   return (
     <Provider store={store}>
       <BrowserRouter>
@@ -17,6 +18,8 @@ export function App() {
           <Header />
             <Routes>
               <Route path="/" element={<MainPage />} />
+              {!isAuth && <Route path='goods' element={<GoodsPage />} />}
+              <Route path='category/:id' element={<CategoryPage />} />
               <Route path='goods/:id' element={<ProductPage />} />
             </Routes>
             <Footer />
