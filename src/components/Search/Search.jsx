@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Api } from '../../api';
 import css from './styles.module.css';
 
+
 const api = new Api();
 
 export const Search = () => {
