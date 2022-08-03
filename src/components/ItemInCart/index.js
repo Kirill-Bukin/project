@@ -1,0 +1,1 @@
+export { ItemInCart } from './ItemInCart'

@@ -19,7 +19,6 @@ export class Api {
     getGoodById = (ids) => {
         const url = this.andPoints.goods;
         return request(url, { ids })
-}
     }
     getGoodsByCategoryId = (categoryTypeIds) => {
         const url = this.andPoints.goods;
@@ -29,4 +28,4 @@ export class Api {
         const url = this.andPoints.goods;
         return request(url, { text });
     }
-;
+};

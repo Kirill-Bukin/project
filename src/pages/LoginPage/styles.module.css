@@ -1,0 +1,13 @@
+.login {
+    padding-top: 100px;
+    margin: 0, auto;
+    max-width: 1024px;
+    text-align: center;
+}
+.btn{
+    margin-top: 20px;
+    background-color: rgb(47, 34, 238);
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+ }

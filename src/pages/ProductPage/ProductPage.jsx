@@ -5,6 +5,7 @@ import { fetchProductPage } from "../../store/productPage/slice";
 import { productPageSelectors } from "../../store/productPage";
 import { Divider } from "antd";
 import { Loader } from "../../components/common/Loader";
+import { addItemInCart, deleteItemFromCart } from '../../store/cart/slice';
 import css from "./styles.module.css";
 
 export const ProductPage = () => {
@@ -15,13 +16,22 @@ export const ProductPage = () => {
   const isLoaded = useSelector(productPageSelectors.getIsLoadedSeletor);
   const isLoading = useSelector(productPageSelectors.getIsLoadingSeletor);
   const isError = useSelector(productPageSelectors.getIsErrorSeletor);
-  
+  const items = useSelector(state => state.cart.itemsInCart);
+  const isItemInCart = items.some(item => item.id === productPage.id);
+  const handleClick = (e) => {
+    e.stopPropagation();
+    if( isItemInCart ) {
+      dispatch(deleteItemFromCart(productPage.id));
+    }else {
+      dispatch(addItemInCart(productPage));
+    }
+}
+
 
   useEffect(() => {
     dispatch(fetchProductPage(id));
   }, [id]);
 
-  
   return (
     <div className={css.conteiner}>
       {isLoading && <Loader />}
@@ -38,7 +48,11 @@ export const ProductPage = () => {
               <Divider />
               <div className={css.price}>
                 <span className={css.price_price}>{`${price} $`}</span>
-                <button className={css.btn}>Добавить в корзину</button>
+                <button 
+                  className={css.btn}
+                  onClick={ handleClick }>
+                  { isItemInCart ? 'Убрать из корзины' : 'В корзину' }
+                </button>
               </div>
             </div>
           </div>

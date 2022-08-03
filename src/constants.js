@@ -10,3 +10,4 @@ export const POPULAR_CATEGORY = 'popularCategory';
 export const CATEGORY_PAGE = 'categoryPage';
 export const PRODUCT_PAGE = 'productPage';
 export const GOODS = 'goods';
+export const CART = 'cart';
