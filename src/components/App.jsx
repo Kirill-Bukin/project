@@ -22,7 +22,7 @@ export function App() {
             <Routes>
               <Route path="/" element={<MainPage />} />
               <Route path='login' element={<LoginPage />} />
-              {!isAuth && <Route path='goods' element={<GoodsPage />} />}
+               {!isAuth &&<Route path='goods' element={<GoodsPage />} />}
               <Route path='category/:id' element={<CategoryPage />} />
               <Route path='goods/:id' element={<ProductPage />} />
             </Routes>

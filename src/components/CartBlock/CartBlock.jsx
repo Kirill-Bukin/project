@@ -5,28 +5,28 @@ import { DeleteOutlined } from '@ant-design/icons'
 import { ItemInCart } from '../ItemInCart/ItemInCart'
 import { CartMenu } from '../CartMenu/CartMenu';
 import css from './styles.module.css';
-
+import { cartSelectors } from '../../store/cart';
 
 
 export const CartBlock = () => {
-  const [isCartMenu, setIsCartMenu] = useState(false);
-  const items = useSelector((state) => state.cart.ItemsInCart);
+  const [isMenuVisible, setisMenuVisible] = useState(false);
+  const items = useSelector(cartSelectors.getCartSelector);
   const navigate = useNavigate();
 
 
   const handleClick = useCallback(() => {
-    setIsCartMenu(false);
+    setisMenuVisible(false);
     navigate('/cart');
   }, [navigate]);
 
 
   return (
     <div className={css.cart}>
-      <ItemInCart quantity={items.length}/>
+      <ItemInCart quantity={items}/>
         <DeleteOutlined 
           className={css.icon}
-          onClick={() => setIsCartMenu(!isCartMenu)}
+          onClick={() => setisMenuVisible(!isMenuVisible)}
         />
-        {isCartMenu && <CartMenu items={items} onClick={handleClick} />}</div>
+        {isMenuVisible && <CartMenu items={items} onClick={handleClick} />}</div>
   );
 };
