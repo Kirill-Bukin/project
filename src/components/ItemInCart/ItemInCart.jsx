@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 import css from "./styles.module.css";
 
-
-export const ItemInCart = ({quantity = 0}) => {
-  return quantity > 0 ? (
-    <div className={css.items}>
-        { quantity }
-    </div>
-  ) : null
-}
+export const ItemInCart = ({ quantity = 0 }) => {
+  if (quantity > 0) {
+    return <div className={css.items}>{quantity}</div>;
+  }
+  return null;
+};

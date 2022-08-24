@@ -10,7 +10,7 @@ export const CartMenu = ({ items, onClick }) => {
         {items.length > 0
           ? items.map((item) => (
               <CartItem
-                key={item.label}
+                key={item.id}
                 price={item.price}
                 title={item.label}
                 id={item.id}

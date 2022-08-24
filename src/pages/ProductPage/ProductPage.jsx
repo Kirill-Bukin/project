@@ -6,24 +6,25 @@ import { productPageSelectors } from "../../store/productPage";
 import { Divider } from "antd";
 import { Loader } from "../../components/common/Loader";
 import { addItemInCart, deleteItemFromCart } from '../../store/cart/slice';
+import { cartSelectors } from '../../store/cart'
 import css from "./styles.module.css";
 
 export const ProductPage = () => {
   let { id } = useParams();
   const dispatch = useDispatch();
 
-  const productPage = useSelector(productPageSelectors.getProductPage);
+  const product = useSelector(productPageSelectors.getProductPage);
   const isLoaded = useSelector(productPageSelectors.getIsLoadedSeletor);
   const isLoading = useSelector(productPageSelectors.getIsLoadingSeletor);
   const isError = useSelector(productPageSelectors.getIsErrorSeletor);
-  const items = useSelector(state => state.cart.itemsInCart);
-  const isItemInCart = items.some(item => item.id === productPage.id);
+  const items = useSelector(cartSelectors.getCartSelector);
+  const isItemInCart = items.some(item => item.id === product.id);
   const handleClick = (e) => {
     e.stopPropagation();
     if( isItemInCart ) {
-      dispatch(deleteItemFromCart(productPage.id));
+      dispatch(deleteItemFromCart(product.id));
     }else {
-      dispatch(addItemInCart(productPage));
+      dispatch(addItemInCart(product));
     }
 }
 
@@ -36,7 +37,7 @@ export const ProductPage = () => {
     <div className={css.conteiner}>
       {isLoading && <Loader />}
       {isLoaded &&
-        productPage.map(({ id, label, price, img, description }) => (
+        product.map(({ id, label, price, img, description }) => (
           <div key={id} className={css.wrap}>
             <div className={css.image}>
               <img className={css.img} src={img} alt="картинка"></img>
